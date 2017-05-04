@@ -13,9 +13,21 @@
 		<link rel="stylesheet" href="app.css">
 	</head>
 	<body>
-		<section>
+<!-- 	https://github.com/smwhr/cannes-tickets -->
+		<section ng-controller="ticketController as ctrl">
 			<h1>Tickets</h1>
-			<div class="row" ng-controller="ticketController as ctrl">
+			<div class="row">
+				<div class="col-sm-offset-2 col-sm-1">Debussy</div>
+				<div class="col-sm-9">Lumière</div>
+			</div>
+			<div class="row" ng-repeat="dates in ctrl.dates">
+				<div class="col-xs-12 col-sm-2 date">
+					{{dates.date}}
+				</div>
+				<div class="col-sm-1" ng-repeat-end ng-repeat="hours in dates.hours">
+					{{hours.hour}}
+				</div>
+			</div>
 		</section>
 	</body>
 </html>

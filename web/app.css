@@ -1,4 +1,7 @@
-ng-map{
-	display:block;
-	height:480px;
+body{
+	background-color:#aeaeae;
+}
+.date{
+	background-color:white;
+	text-align:center;
 }

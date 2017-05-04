@@ -6,12 +6,30 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	this.a = false;
 	this.b = true;
 	
-	this.films = [];
+	this.dates = [];
+	this.seances = [];
+	this.debussy = [];
+	this.lumiere = [];
 	var promise = $http.get("data/data.json");
 	promise.then(function(data){
-		ctrl.films = data.data;
-		console.log(ctrl.films)
+		ctrl.dates = data.data[0]["dates"];
+		ctrl.dates.forEach(function(date){
+			date['hours'].forEach(function(hour){
+				hour['films'].forEach(function(film){
+					if(film['hall'] == 'Debussy'){
+						ctrl.debussy.push(film)
+					}
+					if(film['hall'] == 'Lumière'){
+						ctrl.lumiere.push(film)
+					}
+				})
+			})
+		})
+		console.log(ctrl.debussy, ctrl.lumiere)
 	});
+	
+	
+	
 
 }]);
 
