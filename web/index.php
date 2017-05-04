@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<section>
-			<h1>Alloséance</h1>
+			<h1>Tickets</h1>
 			<div class="row" ng-controller="ticketController as ctrl">
 		</section>
 	</body>
