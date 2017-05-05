@@ -60,8 +60,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		if(!ctrl.booking.includes(film.title)){
 			ctrl.booking.push(film.title)
 		}
-		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"))
-		console.log(elems)
+		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
 		angular.forEach(elems, function(elem, key){
 			var booked = document.createAttribute("class");
 			booked.value = elem.attributes.getNamedItem("class").value + " booked";
@@ -72,6 +71,20 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	function unbook(film){
 		if(ctrl.booking.includes(film.title)){
 			ctrl.booking.splice(ctrl.booking.indexOf(film.title), 1);
+			elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
+			angular.forEach(elems, function(elem, key){
+				var classes = elem.attributes.getNamedItem("class").value;
+				var arrClasses = classes.split(" ");
+				var unBookedClasses = ''
+				arrClasses.forEach(function(classe){
+					if(classe != "booked"){
+						unBookedClasses += classe+" "
+					}
+				})
+				var unBooked = document.createAttribute("class");
+				unBooked.value = unBookedClasses;
+				elem.attributes.setNamedItem(unBooked)
+			})
 		}
 	}
 	
