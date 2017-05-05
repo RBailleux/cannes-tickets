@@ -21,6 +21,7 @@
 						<td></td>
 						<td>Debussy</td>
 						<td>Lumière</td>
+						<td>Crédits restant : {{ctrl.credit}}</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,7 +34,8 @@
         							{{film.director}}<br>
         							<br>
         							<span class="hour">{{film.hour}}</span>
-        							<span class="askInfo"></span>
+        							<span class="askInfo isnotasked">demander</span>
+        							<span class="askInfo isasked">demandée</span>
         							<span class="highDemand" ng-if="film.isHighDemand==true"></span>
     							</p>
 							</div>
@@ -45,7 +47,8 @@
         							{{film.director}}<br>
         							<br>
         							<span class="hour">{{film.hour}}</span>
-        							<span class="askInfo"></span>
+        							<span class="askInfo isnotasked">demander</span>
+        							<span class="askInfo isasked">demandée</span>
         							<span class="highDemand" ng-if="film.isHighDemand==true"></span>
     							</p>
     						</div>

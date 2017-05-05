@@ -4,9 +4,12 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	this.seances = [];
 	this.debussy = [];
 	this.lumiere = [];
+	this.booking = [];
+	this.creditHistory = [];
+	this.credit = 7;
 	
 	var ctrl = this;
-	this.booking = [];
+	
 	var promise = $http.get("data/data.json");
 	promise.then(function(data){
 		ctrl.dates = data.data[0]["dates"];
@@ -52,25 +55,52 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		else{
 			book(film);
 		}
-		console.log(ctrl.booking)
-		console.log(event.target.parentElement.attributes.getNamedItem('data-film'))
 	}
 	
 	function book(film){
 		if(!ctrl.booking.includes(film.title)){
-			ctrl.booking.push(film.title)
+			
+			if(film.isHighDemand == true){
+				if((ctrl.credit-2) < 0){
+					alert("Vous n'avez plus asser de crédit.")
+				}
+				else{
+					ctrl.booking.push(film.title)
+					ctrl.creditHistory.push(2)
+					ctrl.credit = ctrl.credit -2;
+					elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
+					angular.forEach(elems, function(elem, key){
+						var booked = document.createAttribute("class");
+						booked.value = elem.attributes.getNamedItem("class").value + " booked";
+						elem.attributes.setNamedItem(booked)
+					})
+				}
+			}
+			else{
+				if((ctrl.credit-1) < 0){
+					alert("Vous n'avez plus asser de crédit.")
+				}
+				else{
+					ctrl.booking.push(film.title)
+					ctrl.creditHistory.push(1)
+					ctrl.credit = ctrl.credit -1;
+					elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
+					angular.forEach(elems, function(elem, key){
+						var booked = document.createAttribute("class");
+						booked.value = elem.attributes.getNamedItem("class").value + " booked";
+						elem.attributes.setNamedItem(booked)
+					})
+				}
+			}
 		}
-		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
-		angular.forEach(elems, function(elem, key){
-			var booked = document.createAttribute("class");
-			booked.value = elem.attributes.getNamedItem("class").value + " booked";
-			elem.attributes.setNamedItem(booked)
-		})
 	}
 	
 	function unbook(film){
 		if(ctrl.booking.includes(film.title)){
-			ctrl.booking.splice(ctrl.booking.indexOf(film.title), 1);
+			var historyIndex = ctrl.booking.indexOf(film.title);
+			ctrl.credit = ctrl.credit+ctrl.creditHistory[historyIndex];
+			ctrl.booking.splice(historyIndex, 1);
+			ctrl.creditHistory.splice(historyIndex, 1);
 			elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
 			angular.forEach(elems, function(elem, key){
 				var classes = elem.attributes.getNamedItem("class").value;

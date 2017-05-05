@@ -27,6 +27,9 @@ body{
 	margin:0;
 	background-color:white;
 }
+.filmEntry:not(.booked){
+	cursor:pointer;
+}
 .highDemand{
 	width:15px;
 	height:15px;
@@ -52,6 +55,12 @@ body{
     padding-left:25px;
     height: 20px;
     display: inline-block;
+}
+.filmEntry:not(.booked) .filmInfo .askInfo.isasked{
+	display:none;
+}
+.filmEntry.booked .filmInfo .askInfo.isnotasked{
+    display:none;
 }
 .filmEntry.booked .filmInfo {
 	background-color:#F1C076;
