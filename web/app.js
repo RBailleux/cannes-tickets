@@ -50,10 +50,16 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			var conf = confirm("Souhaitez-vous vraiment annuler la réservation sur ce film ?")
 			if(conf === true){
 				unbook(film);
+				var thisBooked = document.createAttribute("style");
+				thisBooked.value="";
+				event.srcElement.attributes.setNamedItem(thisBooked);
 			}
 		}
 		else{
 			book(film);
+			var thisBooked = document.createAttribute("style");
+			thisBooked.value="background-color:#F1C076";
+			event.srcElement.attributes.setNamedItem(thisBooked);
 		}
 	}
 	
@@ -68,12 +74,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 					ctrl.booking.push(film.title)
 					ctrl.creditHistory.push(2)
 					ctrl.credit = ctrl.credit -2;
-					elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
-					angular.forEach(elems, function(elem, key){
-						var booked = document.createAttribute("class");
-						booked.value = elem.attributes.getNamedItem("class").value + " booked";
-						elem.attributes.setNamedItem(booked)
-					})
+					applyBookStyle(film);
 				}
 			}
 			else{
@@ -84,17 +85,19 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 					ctrl.booking.push(film.title)
 					ctrl.creditHistory.push(1)
 					ctrl.credit = ctrl.credit -1;
-					elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
-					angular.forEach(elems, function(elem, key){
-						var booked = document.createAttribute("class");
-						booked.value = elem.attributes.getNamedItem("class").value + " booked";
-						elem.attributes.setNamedItem(booked)
-					})
+					applyBookStyle(film);
 				}
 			}
 		}
 	}
-	
+	function applyBookStyle(film){
+		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
+		angular.forEach(elems, function(elem, key){
+			var booked = document.createAttribute("class");
+			booked.value = elem.attributes.getNamedItem("class").value + " booked";
+			elem.attributes.setNamedItem(booked);
+		})
+	}
 	function unbook(film){
 		if(ctrl.booking.includes(film.title)){
 			var historyIndex = ctrl.booking.indexOf(film.title);
