@@ -88,6 +88,295 @@
                     "hall" : "Lumière",
                     "hour" : "19:30",
                     "isHighDemand" : true
+                },
+                {
+                    "title" : "The nice guys",
+                    "director" : "Shane Black",
+                    "duration" : "01:56",
+                    "hall" : "Lumière",
+                    "hour" : "22:30",
+                    "isHighDemand" : false
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-16",
+            "films" : [
+                {
+                    "title" : "Loving",
+                    "director" : "Jeff Nichols",
+                    "duration" : "02:03",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Loving",
+                    "director" : "Jeff Nichols",
+                    "duration" : "02:03",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Loving",
+                    "director" : "Jeff Nichols",
+                    "duration" : "02:03",
+                    "hall" : "Lumière",
+                    "hour" : "11:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Paterson",
+                    "director" : "Jim Jarmush",
+                    "duration" : "01:53",
+                    "hall" : "Lumière",
+                    "hour" : "16:00",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Loving",
+                    "director" : "Jeff Nichols",
+                    "duration" : "02:03",
+                    "hall" : "Lumière",
+                    "hour" : "19:00",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Hands of stone",
+                    "director" : "Jonathan Jakubowicz",
+                    "duration" : "01:56",
+                    "hall" : "Lumière",
+                    "hour" : "22:00",
+                    "isHighDemand" : false
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-17",
+            "films" : [
+                {
+                    "title" : "Julieta",
+                    "director" : "Pedro Almodóvar",
+                    "duration" : "01:36",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Julieta",
+                    "director" : "Pedro Almodóvar",
+                    "duration" : "01:36",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Personal Assistant",
+                    "director" : "Olivier Assayas",
+                    "duration" : "01:45",
+                    "hall" : "Lumière",
+                    "hour" : "11:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Julieta",
+                    "director" : "Pedro Almodóvar",
+                    "duration" : "01:36",
+                    "hall" : "Lumière",
+                    "hour" : "13:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Aquarius",
+                    "director" : "Kleben Mendonça Filho",
+                    "duration" : "02:20",
+                    "hall" : "Lumière",
+                    "hour" : "16:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Julieta",
+                    "director" : "Pedro Almodóvar",
+                    "duration" : "01:36",
+                    "hall" : "Lumière",
+                    "hour" : "19:30",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Personal Assistant",
+                    "director" : "Olivier Assayas",
+                    "duration" : "01:45",
+                    "hall" : "Lumière",
+                    "hour" : "22:00",
+                    "isHighDemand" : false
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-18",
+            "films" : [
+                {
+                    "title" : "La fille inconnue",
+                    "director" : "Jean-Pierre et Luc Dardenne",
+                    "duration" : "01:53",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "La fille inconnue",
+                    "director" : "Jean-Pierre et Luc Dardenne",
+                    "duration" : "01:53",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Goksung",
+                    "director" : "Hong Jin Na",
+                    "duration" : "02:36",
+                    "hall" : "Lumière",
+                    "hour" : "11:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Ma' Rosa",
+                    "director" : "Brillante Mendoza",
+                    "duration" : "01:50",
+                    "hall" : "Lumière",
+                    "hour" : "16:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Goksung",
+                    "director" : "Hong Jin Na",
+                    "duration" : "02:36",
+                    "hall" : "Lumière",
+                    "hour" : "22:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "La fille inconnue",
+                    "director" : "Jean-Pierre et Luc Dardenne",
+                    "duration" : "01:53",
+                    "hall" : "Lumière",
+                    "hour" : "19:00",
+                    "isHighDemand" : true
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-19",
+            "films" : [
+                {
+                    "title" : "Bacalauréat",
+                    "director" : "Cristian Mungiu",
+                    "duration" : "02:07",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Bacalauréat",
+                    "director" : "Cristian Mungiu",
+                    "duration" : "02:07",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Juste la fin du monde",
+                    "director" : "Xavier Dolan",
+                    "duration" : "01:35",
+                    "hall" : "Lumière",
+                    "hour" : "11:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Bacalauréat",
+                    "director" : "Cristian Mungiu",
+                    "duration" : "02:07",
+                    "hall" : "Lumière",
+                    "hour" : "14:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Bacalauréat",
+                    "director" : "Cristian Mungiu",
+                    "duration" : "02:07",
+                    "hall" : "Lumière",
+                    "hour" : "18:30",
+                    "isHighDemand" : true
+                },
+             	{
+                    "title" : "Juste la fin du monde",
+                    "director" : "Xavier Dolan",
+                    "duration" : "01:35",
+                    "hall" : "Lumière",
+                    "hour" : "22:00",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Gimme danger",
+                    "director" : "Jim Jarmush",
+                    "duration" : "???",
+                    "hall" : "Lumière",
+                    "hour" : "23:59",
+                    "isHighDemand" : false
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-20",
+            "films" : [
+                {
+                    "title" : "The last face",
+                    "director" : "Sean Penn",
+                    "duration" : "02:11",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The last face",
+                    "director" : "Sean Penn",
+                    "duration" : "02:11",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The neon demon",
+                    "director" : "Nicolas Winding Refn",
+                    "duration" : "01:57",
+                    "hall" : "Lumière",
+                    "hour" : "12:00",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The last face",
+                    "director" : "Sean Penn",
+                    "duration" : "02:11",
+                    "hall" : "Lumière",
+                    "hour" : "15:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The last face",
+                    "director" : "Sean Penn",
+                    "duration" : "02:11",
+                    "hall" : "Lumière",
+                    "hour" : "19:00",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "The neon demon",
+                    "director" : "Nicolas Winding Refn",
+                    "duration" : "01:57",
+                    "hall" : "Lumière",
+                    "hour" : "22:30",
+                    "isHighDemand" : true
                 }
             ]
         }
