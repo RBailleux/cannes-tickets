@@ -4,6 +4,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	this.seances = [];
 	this.debussy = [];
 	this.lumiere = [];
+	this.filmHours = ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59'];
 	this.booking = [];
 	this.creditHistory = [];
 	this.credit = 7;
@@ -61,6 +62,24 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			thisBooked.value="background-color:#F1C076";
 			event.srcElement.attributes.setNamedItem(thisBooked);
 		}
+	}
+	
+	$scope.filmInRangeHour = function(film, hourIndex){
+		var thisFilmHourArray = film.hour.split(':');
+		var thisFilmHour = thisFilmHourArray[0];
+		var thisFilmMinute = thisFilmHourArray[1];
+		
+		var thisFilmStart = parseFloat(thisFilmHour+'.'+thisFilmMinute);
+		
+		var globalFilmHours = [];
+		ctrl.filmHours.forEach(function(h){
+			var tmpArray = h.split(':');
+			var tmpHour = tmpArray[0];
+			var tmpMinute = tmpArray[1];
+			globalFilmHours.push(parseFloat(tmpHour+'.'+tmpMinute));
+		})
+		
+		console.log(globalFilmHours, thisFilmStart, hourIndex);
 	}
 	
 	function book(film){
