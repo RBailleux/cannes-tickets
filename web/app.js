@@ -42,7 +42,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		return weekday[d.getDay()]+" "+d.getDate();
 	}
 	
-	$scope.clickFilm = function(film){
+	$scope.clickFilm = function(event, film){
 		if(ctrl.booking.includes(film.title)){
 			var conf = confirm("Souhaitez-vous vraiment annuler la réservation sur ce film ?")
 			if(conf === true){
@@ -53,12 +53,20 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			book(film);
 		}
 		console.log(ctrl.booking)
+		console.log(event.target.parentElement.attributes.getNamedItem('data-film'))
 	}
 	
 	function book(film){
 		if(!ctrl.booking.includes(film.title)){
 			ctrl.booking.push(film.title)
 		}
+		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"))
+		console.log(elems)
+		angular.forEach(elems, function(elem, key){
+			var booked = document.createAttribute("class");
+			booked.value = elem.attributes.getNamedItem("class").value + " booked";
+			elem.attributes.setNamedItem(booked)
+		})
 	}
 	
 	function unbook(film){

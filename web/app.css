@@ -53,6 +53,9 @@ body{
     height: 20px;
     display: inline-block;
 }
-.filmEntry.asked .filmInfo .askInfo{
+.filmEntry.booked .filmInfo {
+	background-color:#F1C076;
+}
+.filmEntry.booked .filmInfo .askInfo{
     background-image:url(images/picto-demande-en-attente.png);
 }
