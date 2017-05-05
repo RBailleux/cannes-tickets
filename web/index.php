@@ -39,7 +39,7 @@
 							</div>
 						</td>
 						<td class="filmCol" ng-repeat="n in ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59']">
-							<div class="filmEntry" ng-repeat="film in ctrl.lumiere" ng-if="dates.date==film.date">
+							<div class="filmEntry" ng-repeat="film in ctrl.lumiere" ng-if="dates.date==film.date" ng-click="clickFilm(film)">
     							<p class="filmInfo" ng-if="film.hour==n">
         							<b>{{film.title}}</b><br>
         							{{film.director}}<br>

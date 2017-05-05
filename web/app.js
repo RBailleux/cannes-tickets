@@ -1,14 +1,12 @@
 var app = angular.module("Tickets", []);
 app.controller('ticketController', ['$http', '$scope', function($http, $scope, ticketFactory){
-	var ctrl = this;
-	ctrl.newFilmName = '';
-	this.a = false;
-	this.b = true;
-	
 	this.dates = [];
 	this.seances = [];
 	this.debussy = [];
 	this.lumiere = [];
+	
+	var ctrl = this;
+	this.booking = [];
 	var promise = $http.get("data/data.json");
 	promise.then(function(data){
 		ctrl.dates = data.data[0]["dates"];
@@ -42,6 +40,31 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		weekday[6] = "Samedi";
 		var d = new Date(date);
 		return weekday[d.getDay()]+" "+d.getDate();
+	}
+	
+	$scope.clickFilm = function(film){
+		if(ctrl.booking.includes(film.title)){
+			var conf = confirm("Souhaitez-vous vraiment annuler la réservation sur ce film ?")
+			if(conf === true){
+				unbook(film);
+			}
+		}
+		else{
+			book(film);
+		}
+		console.log(ctrl.booking)
+	}
+	
+	function book(film){
+		if(!ctrl.booking.includes(film.title)){
+			ctrl.booking.push(film.title)
+		}
+	}
+	
+	function unbook(film){
+		if(ctrl.booking.includes(film.title)){
+			ctrl.booking.splice(ctrl.booking.indexOf(film.title), 1);
+		}
 	}
 	
 	
