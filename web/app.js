@@ -13,19 +13,19 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	promise.then(function(data){
 		ctrl.dates = data.data[0]["dates"];
 		ctrl.dates.forEach(function(date){
-			date['hours'].forEach(function(hour){
-				hour['films'].forEach(function(film){
-					if(film['hall'] == 'Debussy'){
-						var temp = [];
-						temp[date["date"]] = film;
-						ctrl.debussy.push(temp)
-					}
-					if(film['hall'] == 'Lumière'){
-						var temp = [];
-						temp[date["date"]] = film;
-						ctrl.lumiere.push(temp)
-					}
-				})
+			date['films'].forEach(function(film){
+				if(film['hall'] == 'Debussy'){
+					var temp = null;
+					film.date = date["date"]
+					temp = film;
+					ctrl.debussy.push(temp)
+				}
+				if(film['hall'] == 'Lumière'){
+					var temp = null;
+					film.date = date["date"]
+					temp = film;
+					ctrl.lumiere.push(temp)
+				}
 			})
 		})
 		console.log(ctrl.debussy, ctrl.lumiere)
@@ -47,6 +47,16 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	
 
 }]);
+
+app.filter('range', function() {
+	return function(input, total) {
+		total = parseInt(total);
+	    for (var i=0; i<total; i++) {
+	      input.push(i);
+	    }
+	    return input;
+	};
+});
 
 app.factory('ticketFactory', ['$http', '$q', function($http, $q){
 	var obj = {};

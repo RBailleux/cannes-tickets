@@ -1,120 +1,96 @@
 [
-	{
-		"dates" : [
-			{
-				"date" : "2016-05-14",
-				"hours" : [
-					{
-					"hour" : "8:30",
-					"films" : [
-						{
-							"title" : "Agassi",
-							"director" : "Chan-Wook Park",
-							"duration" : "02:25",
-							"hall" : "Debussy",
-							"hour" : "8:30",
-							"isHighDemand" : false
-						},
-						{
-							"title" : "Agassi",
-							"director" : "Chan-Wook Park",
-							"duration" : "02:25",
-							"hall" : "Lumière",
-							"hour" : "8:30",
-							"isHighDemand" : false
-						}]
-					},
-					{
-					"hour" : "11:45",
-					"films" : [
-						{
-							"title" : "The BFG",
-							"director" : "Steven Spielberg",
-							"duration" : "01:55",
-							"hall" : "Lumière",
-							"isHighDemand" : false
-						}]
-					},
-					{
-					"hour" : "19:00",
-					"films" : [
-						{
-							"title" : "The BFG",
-							"director" : "Steven Spielberg",
-							"duration" : "01:55",
-							"hall" : "Lumière",
-							"isHighDemand" : true
-						}]
-					},
-					{
-					"hour" : "22:00",
-					"films" : [
-						{
-							"title" : "Agassi",
-							"director" : "Chan-Wook Park",
-							"duration" : "02:25",
-							"hall" : "Lumière",
-							"isHighDemand" : false
-						}]
-					}
-				]		
-			},
-			{
-				"date" : "2016-05-15",
-				"hours" : [
-					{
-					"hour" : "8:30",
-					"films" : [
-						{
-							"title" : "Mal de pierres",
-							"director" : "Nicole Garcia",
-							"duration" : "02:00",
-							"hall" : "Debussy",
-							"isHighDemand" : false
-						},
-						{
-							"title" : "Mal de pierres",
-							"director" : "Nicole Garcia",
-							"duration" : "02:00",
-							"hall" : "Lumière",
-							"isHighDemand" : false
-						}]
-					},
-					{
-					"hour" : "11:30",
-					"films" : [
-						{
-							"title" : "Mal de pierres",
-							"director" : "Nicole Garcia",
-							"duration" : "02:00",
-							"hall" : "Lumière",
-							"isHighDemand" : false
-						}]
-					},
-					{
-					"hour" : "15:30",
-					"films" : [
-						{
-							"title" : "American Honey",
-							"director" : "Andrea Arnold",
-							"duration" : "02:42",
-							"hall" : "Lumière",
-							"isHighDemand" : true
-						}]
-					},
-					{
-					"hour" : "19:30",
-					"films" : [
-						{
-							"title" : "Mal de pierres",
-							"director" : "Nicole Garcia",
-							"duration" : "02:00",
-							"hall" : "Lumière",
-							"isHighDemand" : true
-						}]
-					}
-				]		
-			}
-		]
-	}
+{
+    "dates" : [
+        {
+            "date" : "2016-05-14",
+            "films" : [
+                {
+                    "title" : "Agassi",
+                    "director" : "Chan-Wook Park",
+                    "duration" : "02:25",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Agassi",
+                    "director" : "Chan-Wook Park",
+                    "duration" : "02:25",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The BFG",
+                    "director" : "Steven Spielberg",
+                    "duration" : "01:55",
+                    "hall" : "Lumière",
+                    "hour" : "11:45",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "The BFG",
+                    "director" : "Steven Spielberg",
+                    "duration" : "01:55",
+                    "hall" : "Lumière",
+                    "hour" : "19:00",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Agassi",
+                    "director" : "Chan-Wook Park",
+                    "duration" : "02:25",
+                    "hall" : "Lumière",
+                    "hour" : "22:00",
+                    "isHighDemand" : false
+                }
+            ]
+        },
+        {
+            "date" : "2016-05-15",
+            "films" : [
+                {
+                    "title" : "Mal de pierres",
+                    "director" : "Nicole Garcia",
+                    "duration" : "02:00",
+                    "hall" : "Debussy",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Mal de pierres",
+                    "director" : "Nicole Garcia",
+                    "duration" : "02:00",
+                    "hall" : "Lumière",
+                    "hour" : "8:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "Mal de pierres",
+                    "director" : "Nicole Garcia",
+                    "duration" : "02:00",
+                    "hall" : "Lumière",
+                    "hour" : "11:30",
+                    "isHighDemand" : false
+                },
+                {
+                    "title" : "American Honey",
+                    "director" : "Andrea Arnold",
+                    "duration" : "02:42",
+                    "hall" : "Lumière",
+                    "hour" : "15:30",
+                    "isHighDemand" : true
+                },
+                {
+                    "title" : "Mal de pierres",
+                    "director" : "Nicole Garcia",
+                    "duration" : "02:00",
+                    "hall" : "Lumière",
+                    "hour" : "19:30",
+                    "isHighDemand" : true
+                }
+            ]
+        }
+    ]
+}
 ]

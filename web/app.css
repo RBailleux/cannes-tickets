@@ -5,7 +5,7 @@ body{
 	background-color:white;
 	text-align:center;
 }
-.colDates td{
+.colDate{
 	width:100px;
 	height:100px;
 	background-color:white;
@@ -13,4 +13,46 @@ body{
 	background-repeat:no-repeat;
 	text-align:center;
 	vertical-align:middle!important;
+}
+.filmCol {
+	background-image:url(images/background-pas-de-seances.png);
+    background-repeat:no-repeat;
+    background-position:center center;
+    padding:0!important;
+    min-width:100px;
+}
+.filmEntry .filmInfo{
+	padding:8px;
+	min-height:100px;
+	margin:0;
+	background-color:white;
+}
+.highDemand{
+	width:15px;
+	height:15px;
+	margin:0 auto;
+	background-color:red;
+	border-radius:100%;
+	display:block;
+}
+.filmInfo .hour{
+	background-image:url(images/picto-horaire.png);
+    background-repeat:no-repeat;
+    line-height:20px;
+    padding-left:25px;
+    height: 20px;
+    display: inline-block;
+    float:left;
+    margin-right:15px;
+}
+.filmInfo .askInfo{
+    background-image:url(images/picto-pas-de-demande.png);
+    background-repeat:no-repeat;
+    line-height:20px;
+    padding-left:25px;
+    height: 20px;
+    display: inline-block;
+}
+.filmEntry.asked .filmInfo .askInfo{
+    background-image:url(images/picto-demande-en-attente.png);
 }

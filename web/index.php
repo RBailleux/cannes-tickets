@@ -14,21 +14,6 @@
 	</head>
 	<body>
 <!-- 	https://github.com/smwhr/cannes-tickets -->
-		<section ng-controller="ticketController as ctrl">
-			<h1>Tickets</h1>
-			<div class="row">
-				<div class="col-sm-offset-2 col-sm-1">Debussy</div>
-				<div class="col-sm-9">Lumière</div>
-			</div>
-			<div class="row" ng-repeat="dates in ctrl.dates">
-				<div class="col-xs-12 col-sm-2 date">
-					{{dates.date}}
-				</div>
-				<div class="col-sm-1" ng-repeat-end ng-repeat="hours in dates.hours">
-					{{hours.hour}}
-				</div>
-			</div>
-		</section>
 		<div class="table-responsive" ng-controller="ticketController as ctrl">
 			<table class="table">
 				<thead>
@@ -39,8 +24,32 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="dates in ctrl.dates" class="colDates">
-						<td>{{readableDate(dates.date)}}</td>
+					<tr ng-repeat="dates in ctrl.dates">
+						<td class="colDate">{{readableDate(dates.date)}}</td>
+						<td class="filmCol"  ng-repeat="film in ctrl.debussy" ng-if="dates.date==film.date">
+							<div class="filmEntry">
+    							<p class="filmInfo">
+        							<b>{{film.title}}</b><br>
+        							{{film.director}}<br>
+        							<br>
+        							<span class="hour">{{film.hour}}</span>
+        							<span class="askInfo"></span>
+        							<span class="highDemand" ng-if="film.isHighDemand==true"></span>
+    							</p>
+							</div>
+						</td>
+						<td class="filmCol" ng-repeat="n in ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59']">
+							<div class="filmEntry" ng-repeat="film in ctrl.lumiere" ng-if="dates.date==film.date">
+    							<p class="filmInfo" ng-if="film.hour==n">
+        							<b>{{film.title}}</b><br>
+        							{{film.director}}<br>
+        							{{film.isHighDemand}}
+        							<span class="hour">{{film.hour}}</span>
+        							<span class="askInfo"></span>
+        							<span class="highDemand" ng-if="film.isHighDemand==true"></span>
+    							</p>
+    						</div>
+						</td>
 					</tr>
 				</tbody>				
 			</table>
