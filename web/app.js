@@ -79,7 +79,17 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			globalFilmHours.push(parseFloat(tmpHour+'.'+tmpMinute));
 		})
 		
-		console.log(globalFilmHours, thisFilmStart, hourIndex);
+		var nextHourIndex = hourIndex+1;
+		if(nextHourIndex>=globalFilmHours.length){
+			nextHourIndex = 0;
+		}
+		
+		if(thisFilmStart >= globalFilmHours[hourIndex] && thisFilmStart <= globalFilmHours[nextHourIndex]){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	function book(film){
