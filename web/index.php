@@ -43,7 +43,7 @@
     							<p class="filmInfo" ng-if="film.hour==n">
         							<b>{{film.title}}</b><br>
         							{{film.director}}<br>
-        							{{film.isHighDemand}}
+        							<br>
         							<span class="hour">{{film.hour}}</span>
         							<span class="askInfo"></span>
         							<span class="highDemand" ng-if="film.isHighDemand==true"></span>
