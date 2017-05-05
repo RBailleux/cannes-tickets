@@ -2,7 +2,6 @@ var app = angular.module("Tickets", []);
 app.controller('ticketController', ['$http', '$scope', function($http, $scope, ticketFactory){
 	var ctrl = this;
 	ctrl.newFilmName = '';
-	this.myvar = "le respect";
 	this.a = false;
 	this.b = true;
 	
@@ -17,10 +16,14 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			date['hours'].forEach(function(hour){
 				hour['films'].forEach(function(film){
 					if(film['hall'] == 'Debussy'){
-						ctrl.debussy.push(film)
+						var temp = [];
+						temp[date["date"]] = film;
+						ctrl.debussy.push(temp)
 					}
 					if(film['hall'] == 'Lumière'){
-						ctrl.lumiere.push(film)
+						var temp = [];
+						temp[date["date"]] = film;
+						ctrl.lumiere.push(temp)
 					}
 				})
 			})
@@ -28,6 +31,18 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		console.log(ctrl.debussy, ctrl.lumiere)
 	});
 	
+	$scope.readableDate = function(date){
+		var weekday = new Array(7);
+		weekday[0] = "Dimanche";
+		weekday[1] = "Lundi";
+		weekday[2] = "Mardi";
+		weekday[3] = "Mercredi";
+		weekday[4] = "Jeudi";
+		weekday[5] = "Vendredi";
+		weekday[6] = "Samedi";
+		var d = new Date(date);
+		return weekday[d.getDay()]+" "+d.getDate();
+	}
 	
 	
 

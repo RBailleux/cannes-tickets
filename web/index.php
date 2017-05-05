@@ -29,5 +29,21 @@
 				</div>
 			</div>
 		</section>
+		<div class="table-responsive" ng-controller="ticketController as ctrl">
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<td>Debussy</td>
+						<td>Lumière</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="dates in ctrl.dates" class="colDates">
+						<td>{{readableDate(dates.date)}}</td>
+					</tr>
+				</tbody>				
+			</table>
+		</div>
 	</body>
 </html>

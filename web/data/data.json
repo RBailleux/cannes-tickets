@@ -12,6 +12,7 @@
 							"director" : "Chan-Wook Park",
 							"duration" : "02:25",
 							"hall" : "Debussy",
+							"hour" : "8:30",
 							"isHighDemand" : false
 						},
 						{
@@ -19,6 +20,7 @@
 							"director" : "Chan-Wook Park",
 							"duration" : "02:25",
 							"hall" : "Lumière",
+							"hour" : "8:30",
 							"isHighDemand" : false
 						}]
 					},
