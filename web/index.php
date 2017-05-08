@@ -42,7 +42,7 @@
 						</td>
 						<td class="filmCol" ng-repeat="n in ctrl.filmHours track by $index">
 							<div class="filmEntry" ng-repeat="film in ctrl.lumiere" ng-if="dates.date==film.date" ng-click="clickFilm($event, film)" data-film="{{film.title}}">
-    							<p class="filmInfo" ng-if="film.hour==n">
+    							<p class="filmInfo" ng-show="filmInRangeHour(film,n)">
         							<b>{{film.title}}</b><br>
         							{{film.director}}<br>
         							<br>

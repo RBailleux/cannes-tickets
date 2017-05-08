@@ -50,21 +50,16 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		if(ctrl.booking.includes(film.title)){
 			var conf = confirm("Souhaitez-vous vraiment annuler la réservation sur ce film ?")
 			if(conf === true){
-				unbook(film);
-				var thisBooked = document.createAttribute("style");
-				thisBooked.value="";
-				event.srcElement.attributes.setNamedItem(thisBooked);
+				unbook(film, event);
 			}
 		}
 		else{
-			book(film);
-			var thisBooked = document.createAttribute("style");
-			thisBooked.value="background-color:#F1C076";
-			event.srcElement.attributes.setNamedItem(thisBooked);
+			book(film, event);
 		}
 	}
 	
-	$scope.filmInRangeHour = function(film, hourIndex){
+	$scope.filmInRangeHour = function(film, hour){
+		hourIndex = ctrl.filmHours.indexOf(hour);
 		var thisFilmHourArray = film.hour.split(':');
 		var thisFilmHour = thisFilmHourArray[0];
 		var thisFilmMinute = thisFilmHourArray[1];
@@ -84,7 +79,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			nextHourIndex = 0;
 		}
 		
-		if(thisFilmStart >= globalFilmHours[hourIndex] && thisFilmStart <= globalFilmHours[nextHourIndex]){
+		if(thisFilmStart >= globalFilmHours[hourIndex] && thisFilmStart < globalFilmHours[nextHourIndex]){
 			return true;
 		}
 		else{
@@ -103,7 +98,7 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 					ctrl.booking.push(film.title)
 					ctrl.creditHistory.push(2)
 					ctrl.credit = ctrl.credit -2;
-					applyBookStyle(film);
+					applyBookStyle(film, event);
 				}
 			}
 			else{
@@ -114,45 +109,61 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 					ctrl.booking.push(film.title)
 					ctrl.creditHistory.push(1)
 					ctrl.credit = ctrl.credit -1;
-					applyBookStyle(film);
+					applyBookStyle(film, event);
 				}
 			}
 		}
 	}
-	function applyBookStyle(film){
+	function applyBookStyle(film, event){
 		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
 		angular.forEach(elems, function(elem, key){
 			var booked = document.createAttribute("class");
 			booked.value = elem.attributes.getNamedItem("class").value + " booked";
 			elem.attributes.setNamedItem(booked);
 		})
+		var thisBooked = document.createAttribute("class");
+		thisBooked.value = event.srcElement.attributes.getNamedItem("class").value + " orange";
+		event.srcElement.attributes.setNamedItem(thisBooked);
 	}
-	function unbook(film){
+	function unbook(film, event){
 		if(ctrl.booking.includes(film.title)){
 			var historyIndex = ctrl.booking.indexOf(film.title);
 			ctrl.credit = ctrl.credit+ctrl.creditHistory[historyIndex];
 			ctrl.booking.splice(historyIndex, 1);
 			ctrl.creditHistory.splice(historyIndex, 1);
-			elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
-			angular.forEach(elems, function(elem, key){
-				var classes = elem.attributes.getNamedItem("class").value;
-				var arrClasses = classes.split(" ");
-				var unBookedClasses = ''
-				arrClasses.forEach(function(classe){
-					if(classe != "booked"){
-						unBookedClasses += classe+" "
-					}
-				})
-				var unBooked = document.createAttribute("class");
-				unBooked.value = unBookedClasses;
-				elem.attributes.setNamedItem(unBooked)
-			})
+			removeBookStyle(film);
 		}
 	}
 	
+	function removeBookStyle(film){
+		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
+		angular.forEach(elems, function(elem, key){
+			var classes = elem.attributes.getNamedItem("class").value;
+			var arrClasses = classes.split(" ");
+			var unBookedClasses = ''
+			arrClasses.forEach(function(classe){
+				if(classe != "booked"){
+					unBookedClasses += classe+" "
+				}
+			})
+			var unBooked = document.createAttribute("class");
+			unBooked.value = unBookedClasses;
+			elem.attributes.setNamedItem(unBooked)
+		})
+	}
 	
 
 }]);
+
+app.filter('filmInRangeHour', function(film, hourIndex) {
+	return function(input, total) {
+		total = parseInt(total);
+	    for (var i=0; i<total; i++) {
+	      input.push(i);
+	    }
+	    return input;
+	};
+});
 
 app.filter('range', function() {
 	return function(input, total) {
