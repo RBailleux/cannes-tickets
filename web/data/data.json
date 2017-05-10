@@ -10,7 +10,7 @@
                     "duration" : "02:25",
                     "hall" : "Debussy",
                     "hour" : "8:30",
-                    "isHighDemand" : true
+                    "isHighDemand" : false
                 },
                 {
                     "title" : "Agassi",

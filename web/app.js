@@ -4,7 +4,8 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	this.seances = [];
 	this.debussy = [];
 	this.lumiere = [];
-	this.filmHours = ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59'];
+	this.filmSeances = ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59'];
+	this.filmHours = ['8:30', '11:00', '13:30', '15:00', '18:30', '22:00', '23:59', '24:00'];
 	this.booking = [];
 	this.creditHistory = [];
 	this.credit = 7;
@@ -73,13 +74,12 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			var tmpMinute = tmpArray[1];
 			globalFilmHours.push(parseFloat(tmpHour+'.'+tmpMinute));
 		})
-		
-		var nextHourIndex = hourIndex+1;
+		var nextHourIndex = hourIndex;
+		nextHourIndex++;
 		if(nextHourIndex>=globalFilmHours.length){
 			nextHourIndex = 0;
 		}
-		
-		if(thisFilmStart >= globalFilmHours[hourIndex] && thisFilmStart < globalFilmHours[nextHourIndex]){
+		if((thisFilmStart >= globalFilmHours[hourIndex] && (thisFilmStart < globalFilmHours[nextHourIndex]))){
 			return true;
 		}
 		else{
@@ -153,32 +153,4 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	}
 	
 
-}]);
-
-app.filter('filmInRangeHour', function(film, hourIndex) {
-	return function(input, total) {
-		total = parseInt(total);
-	    for (var i=0; i<total; i++) {
-	      input.push(i);
-	    }
-	    return input;
-	};
-});
-
-app.filter('range', function() {
-	return function(input, total) {
-		total = parseInt(total);
-	    for (var i=0; i<total; i++) {
-	      input.push(i);
-	    }
-	    return input;
-	};
-});
-
-app.factory('ticketFactory', ['$http', '$q', function($http, $q){
-	var obj = {};
-	obj.getFilm = function(){
-		return [];
-	}
-	return obj;
 }]);
