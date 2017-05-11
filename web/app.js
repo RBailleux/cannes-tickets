@@ -12,6 +12,10 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 	
 	var ctrl = this;
 	
+	
+	/**
+	 * Récupère les informations du json
+	 */
 	var promise = $http.get("data/data.json");
 	promise.then(function(data){
 		ctrl.dates = data.data[0]["dates"];
@@ -34,6 +38,9 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		console.log(ctrl.debussy, ctrl.lumiere)
 	});
 	
+	/**
+	 * Retourne la date en string lisible du type Vendredi 13
+	 */
 	$scope.readableDate = function(date){
 		var weekday = new Array(7);
 		weekday[0] = "Dimanche";
@@ -47,6 +54,9 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		return weekday[d.getDay()]+" "+d.getDate();
 	}
 	
+	/**
+	 * Gère les clics sur les films
+	 */
 	$scope.clickFilm = function(event, film){
 		if(ctrl.booking.includes(film.title)){
 			var conf = confirm("Souhaitez-vous vraiment annuler la réservation sur ce film ?")
@@ -59,6 +69,9 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		}
 	}
 	
+	/**
+	 * Retourne True ou False selon le cas où l'heure de la séance est dans la bonne tranche horaire
+	 */
 	$scope.filmInRangeHour = function(film, hour){
 		hourIndex = ctrl.filmHours.indexOf(hour);
 		var thisFilmHourArray = film.hour.split(':');
@@ -87,6 +100,9 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		}
 	}
 	
+	/**
+	 * Effectue les actions nécéssaire à la réservation d'un film
+	 */
 	function book(film){
 		if(!ctrl.booking.includes(film.title)){
 			
@@ -114,6 +130,10 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 			}
 		}
 	}
+	
+	/**
+	 * Applique les styles css sur le film cliqué et les autres séances de ce film
+	 */
 	function applyBookStyle(film, event){
 		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
 		angular.forEach(elems, function(elem, key){
@@ -125,6 +145,10 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		thisBooked.value = event.srcElement.attributes.getNamedItem("class").value + " orange";
 		event.srcElement.attributes.setNamedItem(thisBooked);
 	}
+	
+	/**
+	 * Effectue les actions nécéssaire à l'annulation de la réservation d'un film
+	 */
 	function unbook(film, event){
 		if(ctrl.booking.includes(film.title)){
 			var historyIndex = ctrl.booking.indexOf(film.title);
@@ -135,6 +159,9 @@ app.controller('ticketController', ['$http', '$scope', function($http, $scope, t
 		}
 	}
 	
+	/**
+	 * Supprime les styles css de réservation
+	 */
 	function removeBookStyle(film){
 		elems = angular.element(document.querySelectorAll("[data-film='"+film.title+"']"));
 		angular.forEach(elems, function(elem, key){
